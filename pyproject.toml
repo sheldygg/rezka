@@ -1,0 +1,96 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "rezka"
+description = 'Simple and asynchrous library for Rezka.'
+requires-python = ">=3.9"
+license = "MIT"
+authors = [
+    { name = "sheldy", email = "chikibamtioma@gmail.com" },
+]
+maintainers = [
+    { name = "sheldy", email = "chikibamtioma@gmail.com" },
+]
+keywords = [
+    "rezka",
+    "rezkapi",
+    "api",
+    "library",
+    "wrapper",
+    "asyncio",
+]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Framework :: AsyncIO",
+    "Typing :: Typed",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Communications :: Chat",
+]
+dependencies = [
+    "aiohttp~=3.9.0",
+]
+dynamic = ["version"]
+
+[tool.hatch.version]
+path = "rezka/__meta__.py"
+
+[tool.ruff]
+line-length = 120
+select = [
+    # "C", # TODO: mccabe - code complecity
+    "C4",
+    "E",
+    "F",
+    "T10",
+    "T20",
+    "Q",
+    "RET",
+]
+ignore = [
+    "F401"
+]
+exclude = [
+    ".git",
+    "build",
+    "dist",
+    "venv",
+    ".venv",
+    "docs",
+    "tests",
+    "dev",
+    "scripts",
+    "*.egg-info",
+]
+target-version = "py310"
+
+
+
+[tool.black]
+line-length = 120
+target-version = ['py39', 'py310', 'py311']
+exclude = '''
+(
+    \.eggs
+  | \.git
+  | \.tox
+  | build
+  | dist
+  | venv
+  | docs
+)
+'''
+
+[tool.isort]
+profile = "black"
